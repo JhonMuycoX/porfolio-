@@ -19,8 +19,19 @@ tailwind.config = {
         orange: '#713326',
       },
       fontFamily: { sans: ['"Libre Franklin"', 'sans-serif'] },
-      keyframes: { blink: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } } },
-      animation: { blink: 'blink 1s step-end infinite' },
+      keyframes: {
+        blink: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
+        wiggle: { '0%, 100%': { transform: 'rotate(0deg)' }, '25%': { transform: 'rotate(-12deg)' }, '50%': { transform: 'rotate(10deg)' }, '75%': { transform: 'rotate(-6deg)' } },
+        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-4px)' } },
+      },
+      animation: {
+        blink: 'blink 1s step-end infinite',
+        wiggle: 'wiggle 500ms ease-in-out',
+        // Three floats with different negative delays so the heading tiles never bob in sync.
+        float: 'float 3s ease-in-out -0.6s infinite',
+        'float-b': 'float 3s ease-in-out -1.6s infinite',
+        'float-c': 'float 3s ease-in-out -2.4s infinite',
+      },
     },
   },
   plugins: [

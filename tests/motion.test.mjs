@@ -28,7 +28,7 @@ test('reveal hooks exist on headings, cards, badges, about and contact', async (
     })`);
     assert.equal(n.h2, true);
     assert.equal(n.cards, 4);
-    assert.equal(n.badges, 12);
+    assert.equal(n.badges, 14);
     assert.ok(n.contact >= 3);
     assert.ok(n.about >= 2);
     assert.equal(n.scene, 0);
