@@ -120,6 +120,7 @@ function initTyping() {
 
 // Fade and lift [data-reveal] elements in as they enter view, replaying on re-entry.
 // Nothing is hidden by CSS: the backwards-filled animation is the only thing that hides an element.
+// The observer margin starts each reveal just before the element is painted, so it never flashes visible first.
 function initReveal() {
   const items = document.querySelectorAll('[data-reveal]');
   if (!items.length || !('IntersectionObserver' in window) || !('animate' in Element.prototype)) return;
@@ -140,7 +141,7 @@ function initReveal() {
   const observer = new IntersectionObserver((entries) => {
     if (reduceMotion.matches) return;
     entries.forEach((entry) => { if (entry.isIntersecting) play(entry.target); });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: '10% 0px 10% 0px' });
   items.forEach((el) => observer.observe(el));
 }
 

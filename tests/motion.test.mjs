@@ -69,6 +69,18 @@ test('re-entering replays the reveal without stacking animations', async () => {
   } finally { await page.close(); }
 });
 
+test('reveal starts just before the element enters the viewport', async () => {
+  const page = await site.open({ width: 1440, height: 900 });
+  try {
+    // Park the third badge 30px below the fold, inside the 10% root margin.
+    const y = await page.eval(`${SKILLS}[2].getBoundingClientRect().top + scrollY - innerHeight - 30`);
+    await page.scrollTo(Math.round(y));
+    assert.equal(await page.eval(`${SKILLS}[2].getBoundingClientRect().top > innerHeight`), true);
+    await page.waitFor(`${SKILLS}[2].getAnimations().length > 0`, 500);
+    assert.equal(await page.eval(`${SKILLS}[2].getBoundingClientRect().top > innerHeight`), true);
+  } finally { await page.close(); }
+});
+
 test('reduced motion: no reveal animations', async () => {
   const page = await site.open({ width: 1440, height: 900, reducedMotion: true });
   try {
