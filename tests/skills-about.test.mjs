@@ -71,6 +71,9 @@ test('keyboard focus shows the real tooltip with a visible ring', async () => {
     await page.waitFor(`document.querySelector('.tooltip.show')`);
     assert.equal(await page.eval(`document.querySelector('.tooltip.show').textContent.trim()`), 'Used in my Inventory App');
     await page.waitFor(`getComputedStyle(document.querySelector('.tooltip.show')).opacity === '1'`);
+    await page.waitFor(`document.querySelector('.tooltip.show').hasAttribute('data-popper-placement')`);
+    assert.equal(await page.eval(`document.querySelector('.tooltip.show').getAttribute('data-popper-placement')`), 'bottom', 'tooltip placed below');
+    assert.equal(await page.eval(`document.querySelector('.tooltip.show').getBoundingClientRect().top >= document.querySelector('[data-skill]').getBoundingClientRect().bottom - 1`), true, 'tooltip starts at or below the badge bottom');
     await page.waitFor(`document.querySelector('[data-skill]').querySelector('i').getAnimations().length > 0`);
     await page.screenshot(resolve(SHOTS, 'task6b-desktop-skills.png'));
     await page.eval(`document.activeElement.blur()`);
