@@ -32,10 +32,10 @@ function initScene() {
   }
 
   // The reference-inspired scene follows native scrolling; no wheel capture or library.
-  const scene = document.querySelector('.scene');
-  const stage = document.querySelector('.scene-stage');
-  const title = document.querySelector('.scene-title');
-  const introduction = document.querySelector('.scene-intro');
+  const scene = document.querySelector('[data-scene]');
+  const stage = document.querySelector('[data-scene-stage]');
+  const title = document.querySelector('[data-scene-title]');
+  const introduction = document.querySelector('[data-scene-intro]');
   if (!(scene && stage && title && introduction)) return;
 
   const compactScreen = window.matchMedia('(max-width: 700px), (max-height: 650px)');
@@ -74,6 +74,58 @@ function initScene() {
   renderScene();
 }
 
+// Type, hold, delete, pause through the lines. Writes textContent only.
+function initTyping() {
+  const target = document.querySelector('#typing-text');
+  if (!target) return;
+  let lines;
+  try { lines = JSON.parse(target.dataset.typingLines || '[]'); } catch { lines = []; }
+  if (!Array.isArray(lines) || lines.length < 2) return;
+
+  const { typeMs, deleteMs, holdMs, gapMs } = { typeMs: 75, deleteMs: 40, holdMs: 1800, gapMs: 350 };
+  let index = Math.max(0, lines.indexOf(target.textContent.trim()));
+  let timer = 0;
+  let running = false;
+
+  const later = (fn, ms) => { timer = window.setTimeout(fn, ms); };
+  function typeNext() {
+    const line = lines[index];
+    const shown = target.textContent;
+    if (shown.length < line.length) {
+      target.textContent = line.slice(0, shown.length + 1);
+      later(typeNext, typeMs);
+    } else {
+      later(deleteNext, holdMs);
+    }
+  }
+  function deleteNext() {
+    const shown = target.textContent;
+    if (shown.length > 0) {
+      target.textContent = shown.slice(0, -1);
+      later(deleteNext, deleteMs);
+    } else {
+      index = (index + 1) % lines.length;
+      later(typeNext, gapMs);
+    }
+  }
+  function start() {
+    if (running) return;
+    running = true;
+    later(deleteNext, holdMs);
+  }
+  function stop() {
+    running = false;
+    window.clearTimeout(timer);
+    target.textContent = lines[index];
+  }
+  function sync() {
+    if (reduceMotion.matches) stop();
+    else start();
+  }
+  reduceMotion.addEventListener('change', sync);
+  sync();
+}
+
 function initNavbar() {
   const nav = document.querySelector('#site-nav');
   const menu = document.querySelector('#nav-links');
@@ -105,5 +157,6 @@ function initProgress() {
 }
 
 initScene();
+initTyping();
 initNavbar();
 initProgress();

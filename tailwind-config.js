@@ -26,7 +26,8 @@ tailwind.config = {
   plugins: [
     ({ addVariant, addComponents }) => {
       // scene:tw-... applies only while script.js has switched the pinned hero scene on.
-      addVariant('scene', '.scene-enabled &');
+      // An attribute selector, because Tailwind would rename a class selector here to .tw-scene-enabled.
+      addVariant('scene', '[class~="scene-enabled"] &');
       // The prefix turns this into .tw-frame.
       addComponents({
         '.frame': {

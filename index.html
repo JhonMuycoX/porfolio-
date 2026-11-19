@@ -24,6 +24,7 @@
     :focus-visible { outline: 3px solid currentColor; outline-offset: 6px; }
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
+    @layer utilities { .tw-writing-vertical { writing-mode: vertical-rl; } }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script src="script.js" defer></script>
@@ -46,30 +47,44 @@
     </div>
   </nav>
   <main id="main">
-    <section class="scene" aria-labelledby="hero-title">
-      <div class="scene-stage">
-        <div class="scene-backdrop" aria-hidden="true">
-          <div class="scene-card scene-card-dayoff"><span>Weekend state of mind.</span><strong>day<br>off.</strong><span>A landing page study</span></div>
-          <div class="scene-card scene-card-forma"><span>Good things, simply made.</span><strong>Forma</strong><span>A product catalog study</span></div>
-          <div class="scene-card scene-card-loop"><span>For the love of listening.</span><strong>loop<br>loop</strong><span>A music website study</span></div>
-        </div>
-        <div class="scene-title frame">
-          <h1 id="hero-title">Learning<br>by making.</h1>
-          <p>A first-year student’s corner of the web.<br>Small beginnings. Plenty of ideas.</p>
-          <a class="button" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
-        </div>
-        <div class="scene-profile frame">
-          <div class="scene-intro scroll-intro" id="introduction">
-            <h2>Hi, I’m<br>Muyco.</h2>
-            <p>I’m learning to turn ideas into websites with HTML, CSS, and a little JavaScript.</p>
-            <p>These are my first steps into web design. A little experimenting, a few things figured out, and something new to learn with every page.</p>
-            <a class="text-link" href="#about">A little more about me</a>
+    <section data-scene class="tw-relative tw-isolate scene:tw-h-[175svh]" aria-labelledby="hero-title">
+      <div data-scene-stage class="tw-relative tw-overflow-hidden tw-bg-forest tw-pt-[130px] max-[700px]:tw-pt-[105px] scene:tw-sticky scene:tw-top-0 scene:tw-h-[100svh] scene:tw-min-h-[580px] scene:tw-pt-0">
+        <div class="tw-pointer-events-none tw-absolute tw-inset-0 -tw-z-10 tw-overflow-hidden scene:tw-z-0" aria-hidden="true">
+          <div class="tw-absolute tw-left-[-6%] tw-top-[43%] tw-flex tw-aspect-[.85] tw-w-[clamp(170px,22vw,330px)] -tw-rotate-12 tw-flex-col tw-justify-between tw-bg-yellow tw-p-6 tw-text-orange max-[900px]:tw-w-[180px] max-[900px]:tw-p-[18px] max-[700px]:tw-left-[-14%] max-[700px]:tw-top-[58%] max-[700px]:tw-w-[145px] max-[700px]:tw-p-4 scene:tw-translate-x-[var(--back-left-x,0px)] scene:tw-translate-y-[var(--back-y,0px)] scene:tw-opacity-[var(--art-opacity,1)]">
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">Borrow. Return. Repeat.</span>
+            <strong class="tw-text-[length:clamp(72px,8vw,125px)] tw-font-bold tw-leading-[.8] tw-tracking-[-.09em] max-[700px]:tw-text-[64px]">shelf.</strong>
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">A library system study</span>
           </div>
-          <figure class="scene-portrait">
-            <img src="assets/portrait-cutout-v2.png" alt="Portrait of Muyco wearing a dark coat" width="1071" height="1469" fetchpriority="high" decoding="async">
+          <div class="tw-absolute tw-right-[-6%] tw-top-[34%] tw-flex tw-aspect-[.85] tw-w-[clamp(170px,22vw,330px)] tw-rotate-12 tw-flex-col tw-justify-between tw-bg-green tw-p-6 tw-text-forest max-[900px]:tw-w-[180px] max-[900px]:tw-p-[18px] max-[700px]:tw-right-[-13%] max-[700px]:tw-top-[56%] max-[700px]:tw-w-[145px] max-[700px]:tw-p-4 scene:tw-translate-x-[var(--back-right-x,0px)] scene:tw-translate-y-[var(--back-y,0px)] scene:tw-opacity-[var(--art-opacity,1)]">
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">Every score in one place.</span>
+            <strong class="tw-self-center tw-writing-vertical tw-text-[length:clamp(72px,8vw,125px)] tw-font-bold tw-leading-[.8] tw-tracking-[-.09em] max-[700px]:tw-text-[64px]">A+</strong>
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">A grade tracker study</span>
+          </div>
+          <div class="tw-absolute tw-bottom-[-18%] tw-left-[42%] tw-flex tw-aspect-[.85] tw-w-[clamp(170px,22vw,330px)] -tw-rotate-[8deg] tw-flex-col tw-justify-between tw-bg-pink tw-p-6 tw-text-blue max-[900px]:tw-w-[180px] max-[900px]:tw-p-[18px] max-[700px]:tw-bottom-[-20%] max-[700px]:tw-left-[39%] max-[700px]:tw-w-[145px] max-[700px]:tw-p-4 scene:tw-translate-y-[var(--back-bottom-y,0px)] scene:tw-opacity-[var(--art-opacity,1)]">
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">Every device, connected.</span>
+            <strong class="tw-text-[length:clamp(56px,6vw,96px)] tw-font-bold tw-leading-[.8] tw-tracking-[-.09em] max-[700px]:tw-text-[48px]">ping<br>ping<br>ping</strong>
+            <span class="tw-text-[.875rem] max-[700px]:tw-text-[13px]">A network lab study</span>
+          </div>
+        </div>
+        <div data-scene-title class="tw-frame tw-relative tw-z-[2] tw-text-center scene:tw-absolute scene:tw-inset-x-0 scene:tw-top-[23%] scene:tw-opacity-[var(--title-opacity,1)] scene:tw-translate-y-[var(--title-y,0px)]">
+          <h1 id="hero-title" class="tw-m-0 tw-text-[length:clamp(54px,7.5vw,110px)] tw-font-extrabold tw-leading-[.94] tw-tracking-[-.07em] max-[700px]:tw-text-[length:clamp(48px,10.5vw,70px)]">Hi, I’m Muyco.</h1>
+          <p class="visually-hidden">I’m a first-year BSIT student.</p>
+          <p class="tw-m-0 tw-mt-5 tw-min-h-[1.6em] tw-text-[length:clamp(1.3rem,2vw,1.8rem)] tw-font-semibold tw-leading-[1.25] tw-tracking-[-.035em]" aria-hidden="true">I’m <span id="typing-text" class="tw-text-lime" data-typing-lines='["an IT Student","an Aspiring Developer","a Problem Solver","a Tech Enthusiast"]' aria-hidden="true">an IT Student</span><span data-typing-caret class="tw-ml-1 tw-inline-block tw-h-[1em] tw-w-[3px] tw-bg-lime tw-align-[-.12em] motion-safe:tw-animate-blink" aria-hidden="true"></span></p>
+          <p class="tw-mx-auto tw-my-[26px] tw-max-w-[40ch] max-[700px]:tw-my-[22px] max-[700px]:tw-text-base">A first-year BSIT student’s corner of the web.<br>Small beginnings. Plenty of ideas.</p>
+          <a class="tw-inline-flex tw-min-h-[54px] tw-items-center tw-gap-9 tw-bg-lime tw-px-6 tw-py-3.5 tw-font-semibold tw-text-forest tw-no-underline hover:tw-text-forest hover:tw-no-underline hover:-tw-translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200" href="#projects">See my projects <span class="tw-text-[1.4em] tw-leading-none" aria-hidden="true">↘</span></a>
+        </div>
+        <div class="tw-frame tw-relative tw-mt-[70px] tw-grid tw-grid-cols-2 tw-items-center tw-gap-16 tw-pb-10 max-[900px]:tw-gap-8 max-[700px]:tw-mt-11 max-[700px]:tw-grid-cols-1 max-[700px]:tw-gap-5 scene:tw-pointer-events-none scene:tw-absolute scene:tw-inset-0 scene:tw-z-[3] scene:tw-mt-0 scene:tw-py-[60px]">
+          <div data-scene-intro class="tw-max-w-[470px] tw-justify-self-center max-[700px]:tw-max-w-[420px] max-[700px]:tw-text-center scene:tw-opacity-[var(--intro-opacity,0)] scene:tw-translate-y-[var(--intro-y,24px)]">
+            <h2 class="tw-m-0 tw-mb-6 tw-text-[length:clamp(56px,6.2vw,90px)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.065em] max-[900px]:tw-text-[60px] max-[700px]:tw-mb-4 max-[700px]:tw-text-[42px]">Learning<br class="max-[700px]:tw-hidden"> by making.</h2>
+            <p class="tw-m-0 tw-mb-4 max-[700px]:tw-mx-auto max-[700px]:tw-max-w-[36ch] max-[700px]:tw-text-base">I’m studying information technology, and the best way I’ve found to learn it is to build small things: a page, a tool, a first attempt at something I can’t do yet.</p>
+            <p class="tw-m-0 tw-mb-4 tw-max-w-[43ch] tw-text-[.875rem] max-[700px]:tw-mx-auto max-[700px]:tw-max-w-[35ch]">Classes give me the theory. Projects show me where I got it wrong, and that is usually where I learn the most.</p>
+            <a class="tw-inline-flex tw-min-h-[44px] tw-items-center tw-text-mist tw-underline tw-underline-offset-[6px] hover:tw-text-mist hover:tw-decoration-[3px] scene:tw-pointer-events-auto" href="#about">More about me</a>
+          </div>
+          <figure data-scene-portrait class="tw-m-0 tw-w-[min(100%,380px)] tw-justify-self-center max-[900px]:tw-w-[min(100%,290px)] max-[700px]:tw-order-first max-[700px]:tw-w-[min(220px,58vw)] scene:tw-translate-y-[var(--portrait-y,100svh)]">
+            <img class="tw-block tw-h-auto tw-w-full tw-object-contain" src="assets/portrait-cutout-v2.png" alt="Portrait of Muyco wearing a dark coat" width="1071" height="1469" fetchpriority="high" decoding="async">
           </figure>
         </div>
-        <div class="scene-footer frame"><span>Muyco’s web sketchbook</span><a href="#work">Projects below ↓</a></div>
+        <div class="tw-frame tw-relative tw-flex tw-items-center tw-justify-between tw-gap-5 tw-py-4 tw-text-[.875rem] max-[700px]:tw-py-3 max-[700px]:tw-text-[13px] scene:tw-absolute scene:tw-inset-x-0 scene:tw-bottom-0 scene:tw-z-[4]"><span>Muyco’s web sketchbook</span><a class="tw-flex tw-min-h-[44px] tw-items-center tw-text-inherit tw-no-underline tw-underline-offset-[6px] hover:tw-text-inherit hover:tw-underline" href="#projects">Projects below ↓</a></div>
       </div>
     </section>
     <div class="page-content">
