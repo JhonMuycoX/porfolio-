@@ -92,11 +92,11 @@
     <div class="tw-bg-paper tw-text-ink">
       <section id="projects" class="tw-frame tw-py-[clamp(72px,9vw,140px)]" aria-labelledby="projects-title">
         <div class="tw-mb-[clamp(28px,4vw,48px)] tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-items-end md:tw-justify-between md:tw-gap-10">
-          <h2 id="projects-title" class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">Things I’ve built.</h2>
-          <p class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Four projects from my first year in BSIT. Open one to see what I worked on.</p>
+          <h2 id="projects-title" data-reveal class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">Things I’ve built.</h2>
+          <p data-reveal class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Four projects from my first year in BSIT. Open one to see what I worked on.</p>
         </div>
-        <div class="tw-grid tw-gap-5 md:tw-grid-cols-2">
-          <button type="button" data-project="library" data-bs-toggle="modal" data-bs-target="#modal-library" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
+        <div data-reveal-group class="tw-grid tw-gap-5 md:tw-grid-cols-2">
+          <button type="button" data-reveal data-project="library" data-bs-toggle="modal" data-bs-target="#modal-library" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
             <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-yellow tw-p-6 tw-text-orange motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(237,207,105,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(237,207,105,.55)] max-[700px]:tw-p-5" aria-hidden="true">
               <span class="tw-block tw-text-[.875rem]">Borrow. Return. Repeat.</span>
               <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] -tw-rotate-[8deg] tw-tracking-[-.1em] tw-font-black">shelf.</span>
@@ -110,7 +110,7 @@
               <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-ink" aria-hidden="true"></i>
             </span>
           </button>
-          <button type="button" data-project="grades" data-bs-toggle="modal" data-bs-target="#modal-grades" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
+          <button type="button" data-reveal data-project="grades" data-bs-toggle="modal" data-bs-target="#modal-grades" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
             <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-green tw-p-6 tw-text-forest motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] max-[700px]:tw-p-5" aria-hidden="true">
               <span class="tw-block tw-text-[.875rem]">Every score in one place.</span>
               <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] tw-tracking-[-.09em] tw-font-bold">A+</span>
@@ -124,7 +124,7 @@
               <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-ink" aria-hidden="true"></i>
             </span>
           </button>
-          <button type="button" data-project="network" data-bs-toggle="modal" data-bs-target="#modal-network" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
+          <button type="button" data-reveal data-project="network" data-bs-toggle="modal" data-bs-target="#modal-network" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
             <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-pink tw-p-6 tw-text-blue motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(214,172,184,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(214,172,184,.55)] max-[700px]:tw-p-5" aria-hidden="true">
               <span class="tw-block tw-text-[.875rem]">Every device, connected.</span>
               <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] -tw-rotate-[8deg] tw-tracking-[-.09em] tw-font-black">ping<br>ping<br>ping</span>
@@ -138,7 +138,7 @@
               <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-ink" aria-hidden="true"></i>
             </span>
           </button>
-          <button type="button" data-project="inventory" data-bs-toggle="modal" data-bs-target="#modal-inventory" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
+          <button type="button" data-reveal data-project="inventory" data-bs-toggle="modal" data-bs-target="#modal-inventory" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-ink motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-ink">
             <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-blue tw-p-6 tw-text-green motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] max-[700px]:tw-p-5" aria-hidden="true">
               <span class="tw-block tw-text-[.875rem]">Count less. Know more.</span>
               <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] tw-tracking-[-.085em] tw-font-bold">in<br>stock.</span>
@@ -156,35 +156,35 @@
       </section>
       <section id="skills" class="tw-frame tw-py-[clamp(72px,9vw,140px)]" aria-labelledby="skills-title">
         <div class="tw-mb-[clamp(28px,4vw,48px)] tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-items-end md:tw-justify-between md:tw-gap-10">
-          <h2 id="skills-title" class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">Skills I’m building.</h2>
-          <p class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Placeholders for now. I’ll fill these in as I learn.</p>
+          <h2 id="skills-title" data-reveal class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">Skills I’m building.</h2>
+          <p data-reveal class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Placeholders for now. I’ll fill these in as I learn.</p>
         </div>
         <div class="tw-grid tw-gap-10 md:tw-grid-cols-3 md:tw-gap-8">
           <div data-skill-group data-reveal-group>
             <h3 class="tw-m-0 tw-mb-4 tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-ink">Programming</h3>
             <div class="tw-flex tw-flex-wrap tw-gap-3">
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
             </div>
           </div>
           <div data-skill-group data-reveal-group>
             <h3 class="tw-m-0 tw-mb-4 tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-ink">Web Development</h3>
             <div class="tw-flex tw-flex-wrap tw-gap-3">
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
             </div>
           </div>
           <div data-skill-group data-reveal-group>
             <h3 class="tw-m-0 tw-mb-4 tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-ink">Tools</h3>
             <div class="tw-flex tw-flex-wrap tw-gap-3">
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
-              <span data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-yellow">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-green">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-pink">Skill name</span>
+              <span data-reveal data-skill tabindex="0" data-bs-toggle="tooltip" data-bs-title="Short note about this skill" class="tw-inline-block tw-cursor-help tw-px-4 tw-py-2 tw-text-[.9375rem] tw-font-semibold tw-text-ink focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-ink tw-bg-soft">Skill name</span>
             </div>
           </div>
         </div>
@@ -192,21 +192,21 @@
       <section id="about" class="tw-frame tw-py-[clamp(72px,9vw,140px)]" aria-labelledby="about-title">
         <div class="tw-grid tw-gap-8 md:tw-grid-cols-2 md:tw-gap-16">
           <div class="tw-flex tw-flex-col tw-gap-5">
-            <h2 id="about-title" class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">A little<br>about me.</h2>
-            <p class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Still learning. Always curious.</p>
+            <h2 id="about-title" data-reveal class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-ink">A little<br>about me.</h2>
+            <p data-reveal class="tw-m-0 tw-max-w-[37ch] tw-text-muted">Still learning. Always curious.</p>
           </div>
-          <div class="tw-flex tw-flex-col tw-gap-5 tw-text-[1.0625rem] tw-leading-[1.6] tw-text-ink">
+          <div data-reveal class="tw-flex tw-flex-col tw-gap-5 tw-text-[1.0625rem] tw-leading-[1.6] tw-text-ink">
             <p class="tw-m-0 tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.15] tw-tracking-[-.04em]">I’m a first-year BSIT student who likes building systems and apps.</p>
             <p class="tw-m-0">I enjoy solving problems, and I’m learning programming, databases and networking as I go. Most of what I know comes from small class projects, so I’m still figuring things out and happy to keep practicing.</p>
           </div>
         </div>
       </section>
       <section id="contact" class="tw-bg-green tw-text-forest" aria-labelledby="contact-title">
-        <div class="tw-frame tw-flex tw-flex-col tw-items-start tw-gap-6 tw-py-[clamp(72px,9vw,140px)]">
-          <h2 id="contact-title" class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em]">Let’s connect.</h2>
-          <p class="tw-m-0 tw-max-w-[37ch] tw-text-[1.0625rem]">Class project? New idea? Send me an email.</p>
-          <a id="contact-email" class="tw-inline-flex tw-items-center tw-gap-3 tw-break-all tw-text-[length:clamp(1.4rem,3.4vw,3rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-forest tw-no-underline tw-decoration-[3px] tw-underline-offset-[8px] hover:tw-text-forest hover:tw-underline" href="mailto:muyco@example.com"><i class="bi bi-envelope" aria-hidden="true"></i>muyco@example.com</a>
-          <button id="copy-email" type="button" data-email="muyco@example.com" class="tw-inline-flex tw-min-h-[48px] tw-cursor-pointer tw-items-center tw-gap-3 tw-border-0 tw-bg-forest tw-px-6 tw-py-3 tw-font-semibold tw-text-mist hover:tw--translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200"><i class="bi bi-clipboard" aria-hidden="true"></i>Copy email</button>
+        <div data-reveal-group class="tw-frame tw-flex tw-flex-col tw-items-start tw-gap-6 tw-py-[clamp(72px,9vw,140px)]">
+          <h2 id="contact-title" data-reveal class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em]">Let’s connect.</h2>
+          <p data-reveal class="tw-m-0 tw-max-w-[37ch] tw-text-[1.0625rem]">Class project? New idea? Send me an email.</p>
+          <a data-reveal id="contact-email" class="tw-inline-flex tw-items-center tw-gap-3 tw-break-all tw-text-[length:clamp(1.4rem,3.4vw,3rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-forest tw-no-underline tw-decoration-[3px] tw-underline-offset-[8px] hover:tw-text-forest hover:tw-underline" href="mailto:muyco@example.com"><i class="bi bi-envelope" aria-hidden="true"></i>muyco@example.com</a>
+          <button data-reveal id="copy-email" type="button" data-email="muyco@example.com" class="tw-inline-flex tw-min-h-[48px] tw-cursor-pointer tw-items-center tw-gap-3 tw-border-0 tw-bg-forest tw-px-6 tw-py-3 tw-font-semibold tw-text-mist hover:tw--translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200"><i class="bi bi-clipboard" aria-hidden="true"></i>Copy email</button>
         </div>
       </section>
     </div>

@@ -23,14 +23,6 @@ function onScrollFrame(callback) {
 }
 
 function initScene() {
-  // Replay the About introduction when it returns to view.
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.scroll-intro').forEach((intro) => observer.observe(intro));
-  }
-
   // The reference-inspired scene follows native scrolling; no wheel capture or library.
   const scene = document.querySelector('[data-scene]');
   const stage = document.querySelector('[data-scene-stage]');
@@ -126,6 +118,32 @@ function initTyping() {
   sync();
 }
 
+// Fade and lift [data-reveal] elements in as they enter view, replaying on re-entry.
+// Nothing is hidden by CSS: the backwards-filled animation is the only thing that hides an element.
+function initReveal() {
+  const items = document.querySelectorAll('[data-reveal]');
+  if (!items.length || !('IntersectionObserver' in window) || !('animate' in Element.prototype)) return;
+  if (reduceMotion.matches) return;
+
+  const running = new WeakMap();
+  function play(el) {
+    const group = el.closest('[data-reveal-group]');
+    const index = group ? [...group.querySelectorAll('[data-reveal]')].indexOf(el) : 0;
+    running.get(el)?.cancel();
+    const animation = el.animate(
+      [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }],
+      { duration: 650, easing: 'cubic-bezier(.16,1,.3,1)', delay: Math.max(0, index) * 90, fill: 'backwards' },
+    );
+    running.set(el, animation);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (reduceMotion.matches) return;
+    entries.forEach((entry) => { if (entry.isIntersecting) play(entry.target); });
+  }, { threshold: 0.12 });
+  items.forEach((el) => observer.observe(el));
+}
+
 function initNavbar() {
   const nav = document.querySelector('#site-nav');
   const menu = document.querySelector('#nav-links');
@@ -182,5 +200,6 @@ initScene();
 initTyping();
 initNavbar();
 initProgress();
+initReveal();
 initTooltips();
 initCopyEmail();
