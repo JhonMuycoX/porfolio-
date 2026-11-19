@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Muyco's first-year student portfolio. Exploring web design with HTML, CSS, JavaScript, and creative project concepts.">
+  <meta name="theme-color" content="#142b23">
+  <title>Muyco — Personal portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header frame">
+    <a class="brand" href="#top" aria-label="Muyco home">m.</a>
+    <nav aria-label="Main navigation"><a href="#work">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+  <main id="main">
+    <section class="scene" aria-labelledby="hero-title">
+      <div class="scene-stage">
+        <div class="scene-backdrop" aria-hidden="true">
+          <div class="scene-card scene-card-dayoff"><span>Weekend state of mind.</span><strong>day<br>off.</strong><span>A landing page study</span></div>
+          <div class="scene-card scene-card-forma"><span>Good things, simply made.</span><strong>Forma</strong><span>A product catalog study</span></div>
+          <div class="scene-card scene-card-loop"><span>For the love of listening.</span><strong>loop<br>loop</strong><span>A music website study</span></div>
+        </div>
+        <div class="scene-title frame">
+          <h1 id="hero-title">Learning<br>by making.</h1>
+          <p>A first-year student’s corner of the web.<br>Small beginnings. Plenty of ideas.</p>
+          <a class="button" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="scene-profile frame">
+          <div class="scene-intro scroll-intro" id="introduction">
+            <h2>Hi, I’m<br>Muyco.</h2>
+            <p>I’m learning to turn ideas into websites with HTML, CSS, and a little JavaScript.</p>
+            <p>These are my first steps into web design. A little experimenting, a few things figured out, and something new to learn with every page.</p>
+            <a class="text-link" href="#about">A little more about me</a>
+          </div>
+          <figure class="scene-portrait">
+            <img src="assets/portrait-cutout-v2.png" alt="Portrait of Muyco wearing a dark coat" width="1071" height="1469" fetchpriority="high" decoding="async">
+          </figure>
+        </div>
+        <div class="scene-footer frame"><span>Muyco’s web sketchbook</span><a href="#work">Projects below ↓</a></div>
+      </div>
+    </section>
+    <div class="page-content">
+      <section class="work frame" id="work" aria-labelledby="work-title">
+        <div class="section-intro"><h2 id="work-title">Things I’m making.</h2><p>Four ideas from my web sketchbook.<br>Open a project to see the thinking behind it.</p></div>
+        <div class="project-wall">
+          <details class="project project-dayoff">
+            <summary>
+              <span class="project-art dayoff" aria-hidden="true"><span class="poster-caption">A slower kind of weekend.</span><span class="dayoff-title">day<br>off.</span><span class="poster-bottom">Leave a little room for nothing.</span></span>
+              <span class="project-info"><span><strong>Dayoff</strong><span>Travel landing page · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="project-brief"><h3>A weekend worth planning.</h3><p>A travel website concept for short breaks and weekend escapes. Bold headings, warm colors, and simple destination sections give the page an easygoing feel.</p><p class="brief-note">Design focus: page structure, responsive layouts, and clear calls to action.</p></div>
+          </details>
+          <details class="project project-forma">
+            <summary>
+              <span class="project-art forma" aria-hidden="true"><span class="poster-caption">Objects with a point of view.</span><span class="forma-title">Forma</span><span class="poster-bottom">Less, but considered.</span></span>
+              <span class="project-info"><span><strong>Forma</strong><span>Product catalog · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="project-brief"><h3>Everyday, considered.</h3><p>A homeware shop concept with a simple product grid and a calm visual style. The layout explores how spacing and typography can help products stand out.</p><p class="brief-note">Design focus: CSS Grid, product layouts, and consistent spacing.</p></div>
+          </details>
+          <details class="project project-loop">
+            <summary>
+              <span class="project-art loop" aria-hidden="true"><span class="poster-caption">For the love of listening.</span><span class="loop-title">loop<br><span>loop</span><br>loop</span><span class="poster-bottom">Find your next repeat.</span></span>
+              <span class="project-info"><span><strong>Loop</strong><span>Music discovery · Interface design</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="project-brief"><h3>Something new on repeat.</h3><p>A music discovery concept inspired by album artwork and favorite playlists. The design pairs expressive type with a simple layout for exploring artists and tracks.</p><p class="brief-note">Design focus: visual hierarchy, color combinations, and navigation.</p></div>
+          </details>
+          <details class="project project-common">
+            <summary>
+              <span class="project-art common" aria-hidden="true"><span class="poster-caption">A place to come together.</span><span class="common-title">common<br>ground.</span><span class="poster-bottom">Good coffee. Better company.</span></span>
+              <span class="project-info"><span><strong>Common Ground</strong><span>Café website · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
+            </summary>
+            <div class="project-brief"><h3>Your next coffee stop.</h3><p>A neighborhood café website concept with space for a menu, the café’s story, and visiting information. A straightforward layout puts the essentials within easy reach.</p><p class="brief-note">Design focus: semantic HTML, readable content, and mobile-friendly navigation.</p></div>
+          </details>
+        </div>
+      </section>
+      <section class="about frame" id="about" aria-labelledby="about-title"><div class="about-heading"><h2 id="about-title">A little<br>about me.</h2><p class="edit-note">Still learning. Always curious.</p></div><div class="about-copy scroll-intro"><p class="statement">I’m a first-year student exploring web development, one page and one small discovery at a time.</p><p>Right now, I’m getting comfortable with HTML, CSS, and JavaScript. I enjoy trying different colors and layouts, solving small coding problems, and making pages that work well on a phone.</p><div class="tool-list" aria-label="What I’m learning"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive design</span></div></div></section>
+      <section class="contact" id="contact" aria-labelledby="contact-title"><div class="frame contact-inner"><h2 id="contact-title">Let’s connect.</h2><div><p>Class project? New idea? Let’s learn together.</p><p class="contact-note">I’m interested in small web projects, sharing ideas, and meeting other students who enjoy making things.</p><a class="text-link" href="#work">Take a look at my projects</a></div></div></section>
+    </div>
+  </main>
+  <footer class="footer frame"><div class="footer-top"><p>A first-year portfolio, made with curiosity.</p><a href="#top">Back to top ↑</a></div><p class="footer-wordmark" aria-hidden="true">MUYCO</p><p class="footer-bottom">Learning a little more with every project.</p></footer>
+</body>
+</html>
