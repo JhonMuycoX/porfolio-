@@ -156,7 +156,12 @@ function initProgress() {
   update();
 }
 
+function initTooltips() {
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => new bootstrap.Tooltip(el));
+}
+
 initScene();
 initTyping();
 initNavbar();
 initProgress();
+initTooltips();

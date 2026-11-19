@@ -50,7 +50,7 @@ test('mobile menu opens, and closes after a link tap', async () => {
   } finally { await page.close(); }
 });
 
-test('anchored heading clears the fixed navbar', { todo: 'Task 4' }, async () => {
+test('anchored heading clears the fixed navbar', async () => {
   const page = await site.open();
   try {
     await page.eval(`location.hash = '#skills'`);
