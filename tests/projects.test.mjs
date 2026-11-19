@@ -48,6 +48,16 @@ test('four project cards with matching modals', async () => {
   } finally { await page.close(); }
 });
 
+test('projects sit on cream paper with ink text', async () => {
+  const page = await site.open();
+  try {
+    const c = await page.eval(`(() => { const s = document.querySelector('#projects'); const bg = (e) => getComputedStyle(e).backgroundColor;
+      return { bg: bg(s), wrap: bg(s.parentElement), h: getComputedStyle(s.querySelector('h2')).color }; })()`);
+    assert.ok(c.bg === 'rgb(241, 240, 232)' || c.wrap === 'rgb(241, 240, 232)', JSON.stringify(c));
+    assert.equal(c.h, 'rgb(20, 43, 35)');
+  } finally { await page.close(); }
+});
+
 test('cards use the grid, poster colors, and no blue links', async () => {
   const page = await site.open({ width: 1440, height: 900 });
   try {
