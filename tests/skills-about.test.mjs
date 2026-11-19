@@ -49,10 +49,20 @@ test('keyboard focus shows the tooltip with a visible ring', async () => {
     await page.eval(`document.querySelector('[data-skill]').focus()`);
     await page.waitFor(`document.querySelector('.tooltip.show')`);
     assert.match(await page.eval(`document.querySelector('.tooltip.show').textContent`), /Short note about this skill/);
-    await page.waitFor(`getComputedStyle(document.querySelector('.tooltip.show')).opacity === '0.9'`);
+    await page.waitFor(`getComputedStyle(document.querySelector('.tooltip.show')).opacity === '1'`);
     await page.screenshot(resolve(SHOTS, 'task4-desktop-skills.png'));
     await page.eval(`document.activeElement.blur()`);
     await page.waitFor(`!document.querySelector('.tooltip.show')`);
+  } finally { await page.close(); }
+});
+
+test('tooltip is readable: mist text on forest', async () => {
+  const page = await site.open();
+  try {
+    await page.eval(`document.querySelector('[data-skill]').focus()`);
+    await page.waitFor(`document.querySelector('.tooltip.show .tooltip-inner')`);
+    const c = await page.eval(`(() => { const s = getComputedStyle(document.querySelector('.tooltip.show .tooltip-inner')); return [s.color, s.backgroundColor]; })()`);
+    assert.deepEqual(c, ['rgb(230, 236, 218)', 'rgb(20, 43, 35)']);
   } finally { await page.close(); }
 });
 
