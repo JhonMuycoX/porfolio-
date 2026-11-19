@@ -54,6 +54,12 @@ class Connection {
     this.nextId = 1;
     this.pending = new Map();
     this.listeners = new Set();
+    const failAll = () => {
+      for (const p of this.pending.values()) p.reject(new Error('Chrome connection closed'));
+      this.pending.clear();
+    };
+    ws.addEventListener('close', failAll);
+    ws.addEventListener('error', failAll);
     ws.addEventListener('message', (ev) => {
       const msg = JSON.parse(ev.data);
       if (msg.id) {
@@ -71,6 +77,7 @@ class Connection {
     const payload = { id, method, params };
     if (sessionId) payload.sessionId = sessionId;
     return new Promise((resolve, reject) => {
+      if (this.ws.readyState !== WebSocket.OPEN) return reject(new Error('Chrome connection closed'));
       this.pending.set(id, { resolve, reject });
       this.ws.send(JSON.stringify(payload));
     });
@@ -131,6 +138,7 @@ export class Page {
     await writeFile(path, Buffer.from(data, 'base64'));
   }
   async close() {
+    this.conn.listeners.delete(this.onEvent);
     await this.conn.send('Target.closeTarget', { targetId: this.targetId }).catch(() => {});
   }
 }
@@ -142,12 +150,13 @@ export class Browser {
     const { targetId } = await this.conn.send('Target.createTarget', { url: 'about:blank' });
     const { sessionId } = await this.conn.send('Target.attachToTarget', { targetId, flatten: true });
     const page = new Page(this.conn, sessionId, targetId);
-    this.conn.listeners.add((msg) => {
+    page.onEvent = (msg) => {
       if (msg.sessionId === sessionId && msg.method === 'Runtime.exceptionThrown') {
         const d = msg.params.exceptionDetails;
         page.errors.push(d.exception?.description || d.text);
       }
-    });
+    };
+    this.conn.listeners.add(page.onEvent);
     await page.send('Page.enable');
     await page.send('Runtime.enable');
     await page.send('Page.bringToFront');
@@ -162,7 +171,9 @@ export class Browser {
       this.conn.listeners.add(fn);
     });
     await page.send('Page.navigate', { url });
-    await loaded;
+    let timer;
+    const timeout = new Promise((_, fail) => { timer = setTimeout(() => fail(new Error(`Page load timed out: ${url}`)), 15000); });
+    try { await Promise.race([loaded, timeout]); } finally { clearTimeout(timer); }
     await page.waitFor(`getComputedStyle(document.body).backgroundColor === 'rgb(20, 43, 35)'`, 15000);
     return page;
   }
@@ -175,10 +186,12 @@ export class Browser {
 
   async close() {
     try { await this.conn.send('Browser.close'); } catch {}
+    let timer;
     await new Promise((ok) => {
       if (this.proc.exitCode !== null) ok();
-      else { this.proc.once('exit', ok); setTimeout(ok, 3000); }
+      else { this.proc.once('exit', ok); timer = setTimeout(ok, 3000); }
     });
+    clearTimeout(timer);
     this.proc.kill();
     await rm(this.dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }).catch(() => {});
   }
@@ -190,16 +203,22 @@ export async function launchBrowser() {
     '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${dir}`,
     '--no-first-run', '--no-default-browser-check', 'about:blank',
   ], { stdio: 'ignore' });
-  let port;
-  for (let i = 0; i < 200 && !port; i++) {
-    await sleep(100);
-    try { port = (await readFile(join(dir, 'DevToolsActivePort'), 'utf8')).split('\n')[0].trim(); } catch {}
+  try {
+    let port;
+    for (let i = 0; i < 200 && !port; i++) {
+      await sleep(100);
+      try { port = (await readFile(join(dir, 'DevToolsActivePort'), 'utf8')).split('\n')[0].trim(); } catch {}
+    }
+    if (!port) throw new Error('Chrome did not expose a debugging port');
+    const { webSocketDebuggerUrl } = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
+    const ws = new WebSocket(webSocketDebuggerUrl);
+    await new Promise((ok, fail) => { ws.addEventListener('open', ok); ws.addEventListener('error', fail); });
+    return new Browser(proc, new Connection(ws), dir);
+  } catch (err) {
+    proc.kill();
+    await rm(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }).catch(() => {});
+    throw err;
   }
-  if (!port) { proc.kill(); throw new Error('Chrome did not expose a debugging port'); }
-  const { webSocketDebuggerUrl } = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
-  const ws = new WebSocket(webSocketDebuggerUrl);
-  await new Promise((ok, fail) => { ws.addEventListener('open', ok); ws.addEventListener('error', fail); });
-  return new Browser(proc, new Connection(ws), dir);
 }
 
 // Call at the top of a test file. Returns a live object filled in by before().
