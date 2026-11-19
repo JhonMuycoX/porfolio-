@@ -88,43 +88,165 @@
       </div>
     </section>
     <div class="page-content">
-      <section class="work frame" id="work" aria-labelledby="work-title">
-        <div class="section-intro"><h2 id="work-title">Things I’m making.</h2><p>Four ideas from my web sketchbook.<br>Open a project to see the thinking behind it.</p></div>
-        <div class="project-wall">
-          <details class="project project-dayoff">
-            <summary>
-              <span class="project-art dayoff" aria-hidden="true"><span class="poster-caption">A slower kind of weekend.</span><span class="dayoff-title">day<br>off.</span><span class="poster-bottom">Leave a little room for nothing.</span></span>
-              <span class="project-info"><span><strong>Dayoff</strong><span>Travel landing page · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
-            </summary>
-            <div class="project-brief"><h3>A weekend worth planning.</h3><p>A travel website concept for short breaks and weekend escapes. Bold headings, warm colors, and simple destination sections give the page an easygoing feel.</p><p class="brief-note">Design focus: page structure, responsive layouts, and clear calls to action.</p></div>
-          </details>
-          <details class="project project-forma">
-            <summary>
-              <span class="project-art forma" aria-hidden="true"><span class="poster-caption">Objects with a point of view.</span><span class="forma-title">Forma</span><span class="poster-bottom">Less, but considered.</span></span>
-              <span class="project-info"><span><strong>Forma</strong><span>Product catalog · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
-            </summary>
-            <div class="project-brief"><h3>Everyday, considered.</h3><p>A homeware shop concept with a simple product grid and a calm visual style. The layout explores how spacing and typography can help products stand out.</p><p class="brief-note">Design focus: CSS Grid, product layouts, and consistent spacing.</p></div>
-          </details>
-          <details class="project project-loop">
-            <summary>
-              <span class="project-art loop" aria-hidden="true"><span class="poster-caption">For the love of listening.</span><span class="loop-title">loop<br><span>loop</span><br>loop</span><span class="poster-bottom">Find your next repeat.</span></span>
-              <span class="project-info"><span><strong>Loop</strong><span>Music discovery · Interface design</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
-            </summary>
-            <div class="project-brief"><h3>Something new on repeat.</h3><p>A music discovery concept inspired by album artwork and favorite playlists. The design pairs expressive type with a simple layout for exploring artists and tracks.</p><p class="brief-note">Design focus: visual hierarchy, color combinations, and navigation.</p></div>
-          </details>
-          <details class="project project-common">
-            <summary>
-              <span class="project-art common" aria-hidden="true"><span class="poster-caption">A place to come together.</span><span class="common-title">common<br>ground.</span><span class="poster-bottom">Good coffee. Better company.</span></span>
-              <span class="project-info"><span><strong>Common Ground</strong><span>Café website · HTML &amp; CSS</span></span><span class="project-toggle" aria-hidden="true">+</span></span>
-            </summary>
-            <div class="project-brief"><h3>Your next coffee stop.</h3><p>A neighborhood café website concept with space for a menu, the café’s story, and visiting information. A straightforward layout puts the essentials within easy reach.</p><p class="brief-note">Design focus: semantic HTML, readable content, and mobile-friendly navigation.</p></div>
-          </details>
+      <section id="projects" class="tw-frame tw-py-[clamp(72px,9vw,140px)]" aria-labelledby="projects-title">
+        <div class="tw-mb-[clamp(32px,5vw,64px)] tw-max-w-[44rem]">
+          <h2 id="projects-title" class="tw-m-0 tw-text-[length:clamp(2.6rem,6vw,5.5rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em] tw-text-mist">Things I’ve built.</h2>
+          <p class="tw-m-0 tw-mt-5 tw-text-mist/80">Four projects from my first year in BSIT. Open one to see what I worked on.</p>
+        </div>
+        <div class="tw-grid tw-gap-5 md:tw-grid-cols-2">
+          <button type="button" data-project="library" data-bs-toggle="modal" data-bs-target="#modal-library" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-mist motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-lime">
+            <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-yellow tw-p-6 tw-text-orange tw-ring-1 tw-ring-inset tw-ring-mist/15 motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(237,207,105,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(237,207,105,.55)] max-[700px]:tw-p-5" aria-hidden="true">
+              <span class="tw-block tw-text-[.875rem]">Borrow. Return. Repeat.</span>
+              <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] -tw-rotate-[8deg] tw-tracking-[-.1em] tw-font-black">shelf.</span>
+              <span class="tw-block tw-text-[.875rem]">Library Management System</span>
+            </span>
+            <span class="tw-flex tw-items-start tw-justify-between tw-gap-4 tw-pt-4">
+              <span class="tw-block">
+                <span class="tw-block tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em]">Library Management System</span>
+                <span class="tw-mt-1 tw-block tw-text-[.875rem] tw-text-mist/75">PHP, MySQL, Bootstrap</span>
+              </span>
+              <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-lime" aria-hidden="true"></i>
+            </span>
+          </button>
+          <button type="button" data-project="grades" data-bs-toggle="modal" data-bs-target="#modal-grades" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-mist motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-lime">
+            <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-green tw-p-6 tw-text-forest tw-ring-1 tw-ring-inset tw-ring-mist/15 motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] max-[700px]:tw-p-5" aria-hidden="true">
+              <span class="tw-block tw-text-[.875rem]">Every score in one place.</span>
+              <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] tw-tracking-[-.09em] tw-font-bold">A+</span>
+              <span class="tw-block tw-text-[.875rem]">Student Grade Tracker</span>
+            </span>
+            <span class="tw-flex tw-items-start tw-justify-between tw-gap-4 tw-pt-4">
+              <span class="tw-block">
+                <span class="tw-block tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em]">Student Grade Tracker</span>
+                <span class="tw-mt-1 tw-block tw-text-[.875rem] tw-text-mist/75">Java</span>
+              </span>
+              <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-lime" aria-hidden="true"></i>
+            </span>
+          </button>
+          <button type="button" data-project="network" data-bs-toggle="modal" data-bs-target="#modal-network" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-mist motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-lime">
+            <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-pink tw-p-6 tw-text-blue tw-ring-1 tw-ring-inset tw-ring-mist/15 motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(214,172,184,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(214,172,184,.55)] max-[700px]:tw-p-5" aria-hidden="true">
+              <span class="tw-block tw-text-[.875rem]">Every device, connected.</span>
+              <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] -tw-rotate-[8deg] tw-tracking-[-.09em] tw-font-black">ping<br>ping<br>ping</span>
+              <span class="tw-block tw-text-[.875rem]">Network Setup Lab</span>
+            </span>
+            <span class="tw-flex tw-items-start tw-justify-between tw-gap-4 tw-pt-4">
+              <span class="tw-block">
+                <span class="tw-block tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em]">Network Setup Lab</span>
+                <span class="tw-mt-1 tw-block tw-text-[.875rem] tw-text-mist/75">Cisco Packet Tracer</span>
+              </span>
+              <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-lime" aria-hidden="true"></i>
+            </span>
+          </button>
+          <button type="button" data-project="inventory" data-bs-toggle="modal" data-bs-target="#modal-inventory" class="tw-group tw-m-0 tw-block tw-w-full tw-cursor-pointer tw-border-0 tw-bg-transparent tw-p-0 tw-text-left tw-text-mist motion-safe:tw-transition-transform motion-safe:tw-duration-200 motion-safe:hover:-tw-translate-y-1.5 motion-safe:focus-visible:-tw-translate-y-1.5 focus-visible:tw-outline-lime">
+            <span data-poster class="tw-flex tw-aspect-[1.45] tw-flex-col tw-justify-between tw-overflow-hidden tw-bg-blue tw-p-6 tw-text-green tw-ring-1 tw-ring-inset tw-ring-mist/15 motion-safe:tw-transition-shadow motion-safe:tw-duration-200 group-hover:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] group-focus-visible:tw-shadow-[0_22px_60px_-14px_rgba(198,213,183,.55)] max-[700px]:tw-p-5" aria-hidden="true">
+              <span class="tw-block tw-text-[.875rem]">Count less. Know more.</span>
+              <span class="tw-block tw-self-center tw-text-center tw-text-[length:clamp(56px,8vw,120px)] tw-leading-[.85] tw-tracking-[-.085em] tw-font-bold">in<br>stock.</span>
+              <span class="tw-block tw-text-[.875rem]">Inventory App</span>
+            </span>
+            <span class="tw-flex tw-items-start tw-justify-between tw-gap-4 tw-pt-4">
+              <span class="tw-block">
+                <span class="tw-block tw-text-[length:clamp(1.4rem,2.4vw,2rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em]">Inventory App</span>
+                <span class="tw-mt-1 tw-block tw-text-[.875rem] tw-text-mist/75">Python, SQLite</span>
+              </span>
+              <i class="bi bi-arrow-up-right tw-text-2xl tw-leading-none tw-text-lime" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
       </section>
       <section class="about frame" id="about" aria-labelledby="about-title"><div class="about-heading"><h2 id="about-title">A little<br>about me.</h2><p class="edit-note">Still learning. Always curious.</p></div><div class="about-copy scroll-intro"><p class="statement">I’m a first-year student exploring web development, one page and one small discovery at a time.</p><p>Right now, I’m getting comfortable with HTML, CSS, and JavaScript. I enjoy trying different colors and layouts, solving small coding problems, and making pages that work well on a phone.</p><div class="tool-list" aria-label="What I’m learning"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive design</span></div></div></section>
-      <section class="contact" id="contact" aria-labelledby="contact-title"><div class="frame contact-inner"><h2 id="contact-title">Let’s connect.</h2><div><p>Class project? New idea? Let’s learn together.</p><p class="contact-note">I’m interested in small web projects, sharing ideas, and meeting other students who enjoy making things.</p><a class="text-link" href="#work">Take a look at my projects</a></div></div></section>
+      <section class="contact" id="contact" aria-labelledby="contact-title"><div class="frame contact-inner"><h2 id="contact-title">Let’s connect.</h2><div><p>Class project? New idea? Let’s learn together.</p><p class="contact-note">I’m interested in small web projects, sharing ideas, and meeting other students who enjoy making things.</p><a class="text-link" href="#projects">Take a look at my projects</a></div></div></section>
     </div>
   </main>
   <footer class="footer frame"><div class="footer-top"><p>A first-year portfolio, made with curiosity.</p><a href="#top">Back to top ↑</a></div><p class="footer-wordmark" aria-hidden="true">MUYCO</p><p class="footer-bottom">Learning a little more with every project.</p></footer>
+  <div class="modal fade" id="modal-library" tabindex="-1" aria-labelledby="modal-library-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
+        <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-yellow tw-p-6 tw-text-orange">
+          <h2 id="modal-library-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Library Management System</h2>
+          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tw-p-6 md:tw-p-8">
+          <p class="tw-m-0 tw-mb-6">A small system for keeping track of which books are on the shelf and who has them out. It is a class project where I am learning how a web page talks to a database. It still has rough edges, and that is part of the fun.</p>
+          <h3 class="tw-m-0 tw-mb-3 tw-text-[1.125rem] tw-font-bold tw-tracking-[-.02em]">What I worked on</h3>
+          <ul class="tw-m-0 tw-mb-6 tw-list-disc tw-space-y-1.5 tw-pl-5">
+            <li>Planned the MySQL tables for books and borrowers</li>
+            <li>Wrote PHP pages to add, list and update records</li>
+            <li>Styled the forms and tables with Bootstrap</li>
+          </ul>
+          <div class="tw-flex tw-flex-wrap tw-gap-2">
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">PHP</span>
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">MySQL</span>
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal-grades" tabindex="-1" aria-labelledby="modal-grades-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
+        <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-green tw-p-6 tw-text-forest">
+          <h2 id="modal-grades-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Student Grade Tracker</h2>
+          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tw-p-6 md:tw-p-8">
+          <p class="tw-m-0 tw-mb-6">A console program that stores a student’s scores and works out the average. I built it to practice Java classes and loops. It is small, but it taught me how to break a problem into steps.</p>
+          <h3 class="tw-m-0 tw-mb-3 tw-text-[1.125rem] tw-font-bold tw-tracking-[-.02em]">What I worked on</h3>
+          <ul class="tw-m-0 tw-mb-6 tw-list-disc tw-space-y-1.5 tw-pl-5">
+            <li>Made a Student class that holds a name and scores</li>
+            <li>Wrote loops to add scores and compute the average</li>
+            <li>Tested with made-up scores and fixed my off-by-one mistakes</li>
+          </ul>
+          <div class="tw-flex tw-flex-wrap tw-gap-2">
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">Java</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal-network" tabindex="-1" aria-labelledby="modal-network-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
+        <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-pink tw-p-6 tw-text-blue">
+          <h2 id="modal-network-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Network Setup Lab</h2>
+          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tw-p-6 md:tw-p-8">
+          <p class="tw-m-0 tw-mb-6">A lab where I set up a small network of computers, a switch and a router in Cisco Packet Tracer. The goal was to get every device talking to the others. Most of the learning came from working out why a ping failed.</p>
+          <h3 class="tw-m-0 tw-mb-3 tw-text-[1.125rem] tw-font-bold tw-tracking-[-.02em]">What I worked on</h3>
+          <ul class="tw-m-0 tw-mb-6 tw-list-disc tw-space-y-1.5 tw-pl-5">
+            <li>Planned the IP addresses for each device</li>
+            <li>Configured the switch and the router</li>
+            <li>Used ping to check each connection and troubleshoot</li>
+          </ul>
+          <div class="tw-flex tw-flex-wrap tw-gap-2">
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">Cisco Packet Tracer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal-inventory" tabindex="-1" aria-labelledby="modal-inventory-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
+        <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-blue tw-p-6 tw-text-green">
+          <h2 id="modal-inventory-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Inventory App</h2>
+          <button type="button" class="btn-close btn-close-white tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body tw-p-6 md:tw-p-8">
+          <p class="tw-m-0 tw-mb-6">A simple app for keeping track of items and how many are left. I used it to practice Python and saving data in a SQLite file. It only runs on my own computer for now.</p>
+          <h3 class="tw-m-0 tw-mb-3 tw-text-[1.125rem] tw-font-bold tw-tracking-[-.02em]">What I worked on</h3>
+          <ul class="tw-m-0 tw-mb-6 tw-list-disc tw-space-y-1.5 tw-pl-5">
+            <li>Wrote Python functions to add, update and remove items</li>
+            <li>Set up a SQLite table for item names and quantities</li>
+            <li>Added a check that warns when stock gets low</li>
+          </ul>
+          <div class="tw-flex tw-flex-wrap tw-gap-2">
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">Python</span>
+            <span class="tw-inline-block tw-bg-soft tw-px-3 tw-py-1 tw-text-[.875rem] tw-font-semibold tw-text-ink">SQLite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

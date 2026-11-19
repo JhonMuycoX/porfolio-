@@ -115,6 +115,8 @@ export class Page {
   async press(key) {
     const codes = { Enter: 13, Escape: 27, Tab: 9 };
     const base = { key, code: key, windowsVirtualKeyCode: codes[key] };
+    // A real Enter press carries a character, which is what makes a focused button click.
+    if (key === 'Enter') base.text = '\r';
     await this.send('Input.dispatchKeyEvent', { type: 'keyDown', ...base });
     await this.send('Input.dispatchKeyEvent', { type: 'keyUp', ...base });
   }

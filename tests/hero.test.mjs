@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { useSite } from './harness.mjs';
-import { badClassTokens } from './static.test.mjs';
+import { badClassTokens } from './class-audit.mjs';
 
 const site = useSite();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
