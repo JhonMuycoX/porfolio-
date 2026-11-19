@@ -1,23 +1,45 @@
-﻿// Replay the About introduction when it returns to view.
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.scroll-intro').forEach((intro) => observer.observe(intro));
+﻿const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const clamp = (value) => Math.max(0, Math.min(1, value));
+
+// Run `callback` at most once per animation frame; returns the scheduling function.
+function rafThrottle(callback) {
+  let pending = false;
+  return () => {
+    if (pending) return;
+    pending = true;
+    window.requestAnimationFrame(() => {
+      pending = false;
+      callback();
+    });
+  };
 }
 
-// The reference-inspired scene follows native scrolling; no wheel capture or library.
-const scene = document.querySelector('.scene');
-const stage = document.querySelector('.scene-stage');
-const title = document.querySelector('.scene-title');
-const introduction = document.querySelector('.scene-intro');
-if (scene && stage && title && introduction) {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+// rAF-throttled scroll and resize handler shared by the navbar, progress bar and scene.
+function onScrollFrame(callback) {
+  const schedule = rafThrottle(callback);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  return schedule;
+}
+
+function initScene() {
+  // Replay the About introduction when it returns to view.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.scroll-intro').forEach((intro) => observer.observe(intro));
+  }
+
+  // The reference-inspired scene follows native scrolling; no wheel capture or library.
+  const scene = document.querySelector('.scene');
+  const stage = document.querySelector('.scene-stage');
+  const title = document.querySelector('.scene-title');
+  const introduction = document.querySelector('.scene-intro');
+  if (!(scene && stage && title && introduction)) return;
+
   const compactScreen = window.matchMedia('(max-width: 700px), (max-height: 650px)');
-  const clamp = (value) => Math.max(0, Math.min(1, value));
-  let framePending = false;
   function renderScene() {
-    framePending = false;
     const enabled = !reduceMotion.matches && !compactScreen.matches;
     document.documentElement.classList.toggle('scene-enabled', enabled);
     if (!enabled) {
@@ -46,15 +68,42 @@ if (scene && stage && title && introduction) {
     title.inert = progress > 0.34;
     introduction.inert = introProgress < 0.5;
   }
-  function requestSceneFrame() {
-    if (!framePending) {
-      framePending = true;
-      window.requestAnimationFrame(renderScene);
-    }
-  }
-  window.addEventListener('scroll', requestSceneFrame, { passive: true });
-  window.addEventListener('resize', requestSceneFrame);
-  reduceMotion.addEventListener('change', requestSceneFrame);
-  compactScreen.addEventListener('change', requestSceneFrame);
+  const schedule = onScrollFrame(renderScene);
+  reduceMotion.addEventListener('change', schedule);
+  compactScreen.addEventListener('change', schedule);
   renderScene();
 }
+
+function initNavbar() {
+  const nav = document.querySelector('#site-nav');
+  const menu = document.querySelector('#nav-links');
+  if (!nav) return;
+
+  const update = () => nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  onScrollFrame(update);
+  update();
+
+  if (!menu) return;
+  menu.querySelectorAll('[data-nav-link]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+      }
+    });
+  });
+}
+
+function initProgress() {
+  const bar = document.querySelector('#scroll-progress');
+  if (!bar) return;
+  const update = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? clamp(window.scrollY / max) : 0})`;
+  };
+  onScrollFrame(update);
+  update();
+}
+
+initScene();
+initNavbar();
+initProgress();
