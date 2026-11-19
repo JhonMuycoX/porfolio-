@@ -7,7 +7,6 @@ import { badClassTokens } from './class-audit.mjs';
 
 const site = useSite();
 const SLUGS = ['library', 'grades', 'network', 'inventory'];
-const SHOTS = resolve(import.meta.dirname, '..', '.superpowers/sdd/2026-11-19-portfolio-tailwind-redesign/shots');
 
 test('projects section and modals only use allowed classes', () => {
   const html = readFileSync(resolve(import.meta.dirname, '..', 'index.html'), 'utf8');
@@ -68,7 +67,6 @@ test('cards use the grid, poster colors, and no blue links', async () => {
     for (const c of links) assert.notEqual(c, 'rgb(13, 110, 253)');
     await page.eval(`document.querySelector('#projects').scrollIntoView({ behavior: 'instant' })`);
     await page.waitForScrollEnd();
-    await page.screenshot(resolve(SHOTS, 'task3-desktop-projects.png'));
   } finally { await page.close(); }
 });
 
@@ -83,7 +81,6 @@ test('click opens the modal, Escape closes it and returns focus', async () => {
     assert.deepEqual(c, ['rgb(241, 240, 232)', '0px', '0px']);
     assert.equal(await page.eval(`document.querySelectorAll('#modal-library .modal-body li').length`), 3);
     assert.equal(await page.eval(`document.querySelector('#modal-library .btn-close').getAttribute('aria-label')`), 'Close');
-    await page.screenshot(resolve(SHOTS, 'task3-desktop-modal.png'));
     await page.press('Escape');
     await page.waitFor(`!document.querySelector('#modal-library.show')`);
     await page.waitFor(`document.activeElement === document.querySelector('[data-project="library"]')`);
@@ -133,7 +130,6 @@ test('modal fits a phone', async () => {
     await page.waitFor(`!document.querySelector('.modal.show') && !document.querySelector('.modal-backdrop')`);
     await page.eval(`document.querySelector('#projects').scrollIntoView({ behavior: 'instant' })`);
     await page.waitForScrollEnd();
-    await page.screenshot(resolve(SHOTS, 'task3-mobile-projects.png'));
   } finally { await page.close(); }
 });
 

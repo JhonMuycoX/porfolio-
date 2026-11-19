@@ -1,10 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { resolve } from 'node:path';
 import { useSite } from './harness.mjs';
 
 const site = useSite();
-const SHOTS = resolve(import.meta.dirname, '..', '.superpowers/sdd/2026-11-19-portfolio-tailwind-redesign/shots');
 const EMAIL = 'muyco@example.com';
 
 async function toContact(page) {
@@ -52,7 +50,6 @@ test('copy success shows toast and fills clipboard', async () => {
     assert.equal(t.pos, 'fixed');
     assert.ok(t.right > 0 && t.right < 80 && t.bottom > 0 && t.bottom < 80, JSON.stringify(t));
     await page.waitFor(`getComputedStyle(document.querySelector('#copy-toast')).opacity === '1'`);
-    await page.screenshot(resolve(SHOTS, 'task5-desktop-contact.png'));
     assert.deepEqual(page.errors, []);
   } finally { await page.close(); }
 });
@@ -68,7 +65,6 @@ test('toast is bottom-center on phones', async () => {
     assert.ok(Math.abs(r.l - r.r) < 2, JSON.stringify(r));
     assert.equal(await page.eval(`document.documentElement.scrollWidth <= innerWidth`), true);
     await page.waitFor(`getComputedStyle(document.querySelector('#copy-toast')).opacity === '1'`);
-    await page.screenshot(resolve(SHOTS, 'task5-mobile-contact.png'));
   } finally { await page.close(); }
 });
 
@@ -109,7 +105,6 @@ test('footer', async () => {
     await page.scrollTo(99999);
     await page.waitFor(`document.querySelector('#site-nav').classList.contains('is-scrolled')`);
     await page.waitFor(`getComputedStyle(document.querySelector('#site-nav')).backgroundColor === 'rgb(20, 43, 35)'`);
-    await page.screenshot(resolve(SHOTS, 'task5-desktop-footer.png'));
   } finally { await page.close(); }
 });
 

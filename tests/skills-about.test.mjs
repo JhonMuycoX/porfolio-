@@ -6,7 +6,6 @@ import { useSite } from './harness.mjs';
 import { badClassTokens } from './class-audit.mjs';
 
 const site = useSite();
-const SHOTS = resolve(import.meta.dirname, '..', '.superpowers/sdd/2026-11-19-portfolio-tailwind-redesign/shots');
 
 function sectionHtml(id) {
   const html = readFileSync(resolve(import.meta.dirname, '..', 'index.html'), 'utf8');
@@ -75,7 +74,6 @@ test('keyboard focus shows the real tooltip with a visible ring', async () => {
     assert.equal(await page.eval(`document.querySelector('.tooltip.show').getAttribute('data-popper-placement')`), 'bottom', 'tooltip placed below');
     assert.equal(await page.eval(`document.querySelector('.tooltip.show').getBoundingClientRect().top >= document.querySelector('[data-skill]').getBoundingClientRect().bottom - 1`), true, 'tooltip starts at or below the badge bottom');
     await page.waitFor(`document.querySelector('[data-skill]').querySelector('i').getAnimations().length > 0`);
-    await page.screenshot(resolve(SHOTS, 'task6b-desktop-skills.png'));
     await page.eval(`document.activeElement.blur()`);
     await page.waitFor(`!document.querySelector('.tooltip.show')`);
   } finally { await page.close(); }
@@ -139,7 +137,6 @@ test('about speaks as a first-year BSIT student', async () => {
     assert.equal(await page.eval(`document.querySelectorAll('.about, .tool-list, .scroll-intro').length`), 0);
     await page.eval(`document.querySelector('#about').scrollIntoView({ behavior: 'instant' })`);
     await page.waitForScrollEnd();
-    await page.screenshot(resolve(SHOTS, 'task4-desktop-about.png'));
   } finally { await page.close(); }
 });
 
@@ -150,7 +147,6 @@ test('sections order and phone layout', async () => {
     assert.ok(await page.eval(`document.documentElement.scrollWidth - innerWidth`) <= 0, 'no horizontal scroll');
     await page.eval(`document.querySelector('#skills').scrollIntoView({ behavior: 'instant' })`);
     await page.waitForScrollEnd();
-    await page.screenshot(resolve(SHOTS, 'task6b-mobile-skills.png'));
   } finally { await page.close(); }
 });
 

@@ -1,8 +1,8 @@
 import http from 'node:http';
-import { readFile, mkdtemp, writeFile, rm } from 'node:fs/promises';
+import { readFile, mkdtemp, writeFile, mkdir, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, extname, resolve, normalize, sep } from 'node:path';
+import { join, extname, resolve, normalize, sep, dirname } from 'node:path';
 import { spawn } from 'node:child_process';
 import { before, after } from 'node:test';
 
@@ -137,6 +137,7 @@ export class Page {
   }
   async screenshot(path) {
     const { data } = await this.send('Page.captureScreenshot', { format: 'png' });
+    await mkdir(dirname(path), { recursive: true });
     await writeFile(path, Buffer.from(data, 'base64'));
   }
   async close() {
