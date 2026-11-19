@@ -9,8 +9,7 @@ test('Tailwind beats Bootstrap on base styles', async () => {
   try {
     const font = await page.eval('getComputedStyle(document.body).fontFamily');
     assert.match(font, /Libre Franklin/);
-    // Legacy main/footer links keep Bootstrap blue until Tasks 2-5 rebuild them; Task 5 drops the :not() exclusions.
-    const blue = await page.eval(`[...document.querySelectorAll('a:not(main a):not(footer a)')].filter((a) => a.offsetParent !== null && getComputedStyle(a).color === 'rgb(13, 110, 253)').length`);
+    const blue = await page.eval(`[...document.querySelectorAll('a')].filter((a) => a.offsetParent !== null && getComputedStyle(a).color === 'rgb(13, 110, 253)').length`);
     assert.equal(blue, 0);
   } finally { await page.close(); }
 });

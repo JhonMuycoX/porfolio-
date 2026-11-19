@@ -22,7 +22,7 @@ test('CDNs are pinned exactly', () => {
   for (const u of CDN_URLS) assert.ok(html.includes(u), u);
 });
 
-test('every class token is tw- prefixed or an allowed Bootstrap class', { todo: 'Task 5' }, () => {
+test('every class token is tw- prefixed or an allowed Bootstrap class', () => {
   assert.deepEqual(badClassTokens(html), []);
 });
 

@@ -23,6 +23,7 @@
     }
     :focus-visible { outline: 3px solid currentColor; outline-offset: 6px; }
     .tooltip { --bs-tooltip-bg: #142b23; --bs-tooltip-color: #e6ecda; --bs-tooltip-opacity: 1; --bs-tooltip-font-size: .875rem; }
+    .toast { --bs-toast-bg: #142b23; --bs-toast-color: #e6ecda; --bs-toast-border-width: 0; --bs-toast-border-radius: 0; --bs-toast-header-bg: #142b23; --bs-toast-header-color: #e6ecda; }
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
     @layer utilities { .tw-writing-vertical { writing-mode: vertical-rl; } }
@@ -200,10 +201,27 @@
           </div>
         </div>
       </section>
-      <section class="contact" id="contact" aria-labelledby="contact-title"><div class="frame contact-inner"><h2 id="contact-title">Let’s connect.</h2><div><p>Class project? New idea? Let’s learn together.</p><p class="contact-note">I’m interested in small web projects, sharing ideas, and meeting other students who enjoy making things.</p><a class="text-link" href="#projects">Take a look at my projects</a></div></div></section>
+      <section id="contact" class="tw-bg-green tw-text-forest" aria-labelledby="contact-title">
+        <div class="tw-frame tw-flex tw-flex-col tw-items-start tw-gap-6 tw-py-[clamp(72px,9vw,140px)]">
+          <h2 id="contact-title" class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em]">Let’s connect.</h2>
+          <p class="tw-m-0 tw-max-w-[37ch] tw-text-[1.0625rem]">Class project? New idea? Send me an email.</p>
+          <a id="contact-email" class="tw-inline-flex tw-items-center tw-gap-3 tw-break-all tw-text-[length:clamp(1.4rem,3.4vw,3rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-forest tw-no-underline tw-decoration-[3px] tw-underline-offset-[8px] hover:tw-text-forest hover:tw-underline" href="mailto:muyco@example.com"><i class="bi bi-envelope" aria-hidden="true"></i>muyco@example.com</a>
+          <button id="copy-email" type="button" data-email="muyco@example.com" class="tw-inline-flex tw-min-h-[48px] tw-cursor-pointer tw-items-center tw-gap-3 tw-border-0 tw-bg-forest tw-px-6 tw-py-3 tw-font-semibold tw-text-mist hover:tw--translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200"><i class="bi bi-clipboard" aria-hidden="true"></i>Copy email</button>
+        </div>
+      </section>
     </div>
   </main>
-  <footer class="footer frame"><div class="footer-top"><p>A first-year portfolio, made with curiosity.</p><a href="#top">Back to top ↑</a></div><p class="footer-wordmark" aria-hidden="true">MUYCO</p><p class="footer-bottom">Learning a little more with every project.</p></footer>
+  <footer class="tw-frame tw-overflow-hidden tw-bg-forest tw-pt-12 tw-text-mist">
+    <div class="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-x-8 tw-gap-y-2">
+      <p class="tw-m-0">A first-year BSIT portfolio, made with curiosity.</p>
+      <a class="tw-flex tw-min-h-[44px] tw-items-center tw-text-mist tw-underline tw-underline-offset-[6px] hover:tw-text-mist hover:tw-decoration-[3px]" href="#top">Back to top ↑</a>
+    </div>
+    <p data-wordmark class="tw-m-0 tw-mt-10 tw-overflow-hidden tw-whitespace-nowrap tw-text-[length:clamp(80px,23.3vw,420px)] tw-font-black tw-leading-[.8] tw-tracking-[-.095em]" aria-hidden="true">MUYCO</p>
+    <p class="tw-m-0 tw-py-6 tw-text-[.875rem]">Learning a little more with every project.</p>
+  </footer>
+  <div id="copy-toast" class="toast tw-fixed tw-bottom-5 tw-right-5 tw-z-[1100] tw-w-[min(350px,calc(100vw-40px))] tw-rounded-none tw-border-0 tw-bg-forest tw-text-mist tw-shadow-lg tw-ring-1 tw-ring-mist/40 max-[700px]:tw-left-1/2 max-[700px]:tw-right-auto max-[700px]:-tw-translate-x-1/2" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="3000">
+    <div id="copy-toast-text" class="toast-body tw-p-4 tw-font-semibold"></div>
+  </div>
   <div class="modal fade" id="modal-library" tabindex="-1" aria-labelledby="modal-library-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">

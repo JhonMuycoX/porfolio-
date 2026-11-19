@@ -160,8 +160,27 @@ function initTooltips() {
   document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => new bootstrap.Tooltip(el));
 }
 
+function initCopyEmail() {
+  const button = document.querySelector('#copy-email');
+  const toastEl = document.querySelector('#copy-toast');
+  const text = document.querySelector('#copy-toast-text');
+  if (!button || !toastEl || !text) return;
+  const email = button.dataset.email;
+  const show = (message) => {
+    text.textContent = message;
+    if (typeof bootstrap !== 'undefined') bootstrap.Toast.getOrCreateInstance(toastEl).show();
+  };
+  const fail = () => show(`Couldn't copy. The email is ${email}`);
+  button.addEventListener('click', () => {
+    if (!navigator.clipboard?.writeText) return fail();
+    // Called inside the click handler so the user gesture still counts.
+    navigator.clipboard.writeText(email).then(() => show('Email copied!'), fail);
+  });
+}
+
 initScene();
 initTyping();
 initNavbar();
 initProgress();
 initTooltips();
+initCopyEmail();
