@@ -34,3 +34,13 @@ test('page title and description', () => {
   assert.match(html, /<title>Muyco \| BSIT student portfolio<\/title>/);
   assert.ok(html.includes('<meta name="description" content="Muyco\'s portfolio. A first-year BSIT student building systems, apps, and websites.">'));
 });
+
+test('every translate under hover/focus variants is motion-safe gated', () => {
+  const offenders = [];
+  for (const m of html.matchAll(/\sclass="([^"]*)"/g)) {
+    for (const token of m[1].split(/\s+/).filter(Boolean)) {
+      if (/(^|:)(hover|focus|focus-visible):/.test(token) && /translate/.test(token) && !token.includes('motion-safe:')) offenders.push(token);
+    }
+  }
+  assert.deepEqual([...new Set(offenders)], []);
+});

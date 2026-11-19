@@ -154,3 +154,15 @@ test('no uncaught errors', async () => {
   assert.ok(site.pages.length > 0);
   for (const page of site.pages) assert.deepEqual(page.errors, []);
 });
+
+test('Escape dismisses a shown skill tooltip', async () => {
+  const page = await site.open({ width: 1440, height: 900 });
+  try {
+    await page.eval(`document.querySelector('#skills').scrollIntoView({ behavior: 'instant' })`);
+    await page.waitForScrollEnd();
+    await page.eval(`[...document.querySelectorAll('[data-skill]')].find((e) => e.textContent.includes('Python')).focus()`);
+    await page.waitFor(`document.querySelector('.tooltip.show')`);
+    await page.press('Escape');
+    await page.waitFor(`!document.querySelector('.tooltip.show')`);
+  } finally { await page.close(); }
+});

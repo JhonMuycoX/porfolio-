@@ -24,6 +24,7 @@
     :focus-visible { outline: 3px solid currentColor; outline-offset: 6px; }
     .tooltip { --bs-tooltip-bg: #142b23; --bs-tooltip-color: #e6ecda; --bs-tooltip-opacity: 1; --bs-tooltip-font-size: .875rem; }
     .toast { --bs-toast-bg: #142b23; --bs-toast-color: #e6ecda; --bs-toast-border-width: 0; --bs-toast-border-radius: 0; --bs-toast-header-bg: #142b23; --bs-toast-header-color: #e6ecda; }
+    .btn-close { --bs-btn-close-focus-shadow: 0 0 0 3px #142b23; }
     h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
     @layer utilities { .tw-writing-vertical { writing-mode: vertical-rl; } }
@@ -33,11 +34,11 @@
 </head>
 <body id="top" class="tw-bg-forest tw-font-sans tw-text-mist tw-text-[clamp(1rem,.92rem+.3vw,1.18rem)] tw-leading-[1.6] tw-antialiased">
   <a class="visually-hidden-focusable tw-text-forest focus:tw-fixed focus:tw-left-5 focus:tw-top-3 focus:tw-z-[2000] focus:tw-bg-mist focus:tw-px-5 focus:tw-py-3" href="#main">Skip to content</a>
-  <nav id="site-nav" class="navbar navbar-expand-md fixed-top tw-bg-transparent tw-py-4 tw-transition-colors tw-duration-300 [&.is-scrolled]:tw-bg-forest [&.is-scrolled]:tw-py-2 has-[.show]:tw-bg-forest has-[.collapsing]:tw-bg-forest" aria-label="Main navigation">
+  <nav id="site-nav" class="navbar navbar-expand-md fixed-top tw-bg-transparent tw-py-4 tw-transition-colors tw-duration-300 [&.is-scrolled]:tw-bg-forest [&.is-scrolled]:tw-py-2 has-[.show]:tw-bg-forest has-[.collapsing]:tw-bg-forest max-md:has-[.show]:tw-shadow-[0_1px_0_rgba(230,236,218,.25),0_20px_30px_-10px_rgba(0,0,0,.65)] max-md:has-[.collapsing]:tw-shadow-[0_1px_0_rgba(230,236,218,.25),0_20px_30px_-10px_rgba(0,0,0,.65)]" aria-label="Main navigation">
     <div id="scroll-progress" class="tw-absolute tw-inset-x-0 tw-top-0 tw-h-[3px] tw-origin-left tw-bg-lime" style="transform: scaleX(0)" aria-hidden="true"></div>
     <div class="tw-frame tw-flex tw-w-full tw-flex-wrap tw-items-center tw-justify-between">
       <a class="tw-pr-1.5 tw-text-[2.5rem] tw-font-black tw-leading-none tw-tracking-[-0.12em] tw-text-mist tw-no-underline hover:tw-text-mist hover:tw-no-underline" href="#top" aria-label="Muyco home">m.</a>
-      <button class="navbar-toggler tw-border-0 tw-p-2 tw-text-3xl tw-leading-none tw-text-mist focus:tw-shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+      <button class="navbar-toggler tw-border-0 tw-p-2 tw-text-3xl tw-leading-none tw-text-mist focus:tw-shadow-none focus-visible:tw-outline focus-visible:tw-outline-[3px] focus-visible:tw-outline-offset-2 focus-visible:tw-outline-mist" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
         <i class="bi bi-list" aria-hidden="true"></i>
       </button>
       <div id="nav-links" class="collapse navbar-collapse tw-bg-forest tw-pb-3 md:tw-justify-end md:tw-gap-x-[clamp(18px,3.3vw,54px)] md:tw-bg-transparent md:tw-pb-0">
@@ -73,7 +74,7 @@
           <p class="visually-hidden">I’m a first-year BSIT student.</p>
           <p class="tw-m-0 tw-mt-5 tw-min-h-[1.6em] tw-text-[length:clamp(1.3rem,2vw,1.8rem)] tw-font-semibold tw-leading-[1.25] tw-tracking-[-.035em]" aria-hidden="true">I’m <span id="typing-text" class="tw-text-lime" data-typing-lines='["an IT Student","an Aspiring Developer","a Problem Solver","a Tech Enthusiast"]' aria-hidden="true">an IT Student</span><span data-typing-caret class="tw-ml-1 tw-inline-block tw-h-[1em] tw-w-[3px] tw-bg-lime tw-align-[-.12em] motion-safe:tw-animate-blink" aria-hidden="true"></span></p>
           <p class="tw-mx-auto tw-my-[26px] tw-max-w-[40ch] max-[700px]:tw-my-[22px] max-[700px]:tw-text-base">A first-year BSIT student’s corner of the web.<br>Small beginnings. Plenty of ideas.</p>
-          <a class="tw-inline-flex tw-min-h-[54px] tw-items-center tw-gap-9 tw-bg-lime tw-px-6 tw-py-3.5 tw-font-semibold tw-text-forest tw-no-underline hover:tw-text-forest hover:tw-no-underline hover:-tw-translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200" href="#projects">See my projects <span class="tw-text-[1.4em] tw-leading-none" aria-hidden="true">↘</span></a>
+          <a class="tw-inline-flex tw-min-h-[54px] tw-items-center tw-gap-9 tw-bg-lime tw-px-6 tw-py-3.5 tw-font-semibold tw-text-forest tw-no-underline hover:tw-text-forest hover:tw-no-underline focus-visible:tw-outline-lime motion-safe:hover:-tw-translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200" href="#projects">See my projects <span class="tw-text-[1.4em] tw-leading-none" aria-hidden="true">↘</span></a>
         </div>
         <div class="tw-frame tw-relative tw-mt-[70px] tw-grid tw-grid-cols-2 tw-items-center tw-gap-16 tw-pb-10 max-[900px]:tw-gap-8 max-[700px]:tw-mt-11 max-[700px]:tw-grid-cols-1 max-[700px]:tw-gap-5 scene:tw-pointer-events-none scene:tw-absolute scene:tw-inset-0 scene:tw-z-[3] scene:tw-mt-0 scene:tw-py-[60px]">
           <div data-scene-intro class="tw-max-w-[470px] tw-justify-self-center max-[700px]:tw-max-w-[420px] max-[700px]:tw-text-center scene:tw-opacity-[var(--intro-opacity,0)] scene:tw-translate-y-[var(--intro-y,24px)]">
@@ -217,7 +218,7 @@
           <h2 id="contact-title" data-reveal class="tw-m-0 tw-text-[length:clamp(2.2rem,4.9vw,4.8rem)] tw-font-bold tw-leading-[1] tw-tracking-[-.065em]">Let’s connect.</h2>
           <p data-reveal class="tw-m-0 tw-max-w-[37ch] tw-text-[1.0625rem]">Class project? New idea? Send me an email.</p>
           <a data-reveal id="contact-email" class="tw-inline-flex tw-items-center tw-gap-3 tw-break-all tw-text-[length:clamp(1.4rem,3.4vw,3rem)] tw-font-bold tw-leading-[1.1] tw-tracking-[-.04em] tw-text-forest tw-no-underline tw-decoration-[3px] tw-underline-offset-[8px] hover:tw-text-forest hover:tw-underline" href="mailto:muyco@example.com"><i class="bi bi-envelope" aria-hidden="true"></i>muyco@example.com</a>
-          <button data-reveal id="copy-email" type="button" data-email="muyco@example.com" class="tw-inline-flex tw-min-h-[48px] tw-cursor-pointer tw-items-center tw-gap-3 tw-border-0 tw-bg-forest tw-px-6 tw-py-3 tw-font-semibold tw-text-mist hover:tw--translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200"><i class="bi bi-clipboard" aria-hidden="true"></i>Copy email</button>
+          <button data-reveal id="copy-email" type="button" data-email="muyco@example.com" class="tw-inline-flex tw-min-h-[48px] tw-cursor-pointer tw-items-center tw-gap-3 tw-border-0 tw-bg-forest tw-px-6 tw-py-3 tw-font-semibold tw-text-mist focus-visible:tw-outline-forest motion-safe:hover:-tw-translate-y-[3px] active:tw-translate-y-0 motion-safe:tw-transition-transform motion-safe:tw-duration-200"><i class="bi bi-clipboard" aria-hidden="true"></i>Copy email</button>
         </div>
       </section>
     </div>
@@ -230,15 +231,17 @@
     <p data-wordmark class="tw-m-0 tw-mt-10 tw-overflow-hidden tw-whitespace-nowrap tw-text-[length:clamp(80px,23.3vw,420px)] tw-font-black tw-leading-[.8] tw-tracking-[-.095em]" aria-hidden="true">MUYCO</p>
     <p class="tw-m-0 tw-py-6 tw-text-[.875rem]">Learning a little more with every project.</p>
   </footer>
-  <div id="copy-toast" class="toast tw-fixed tw-bottom-5 tw-right-5 tw-z-[1100] tw-w-[min(350px,calc(100vw-40px))] tw-rounded-none tw-border-0 tw-bg-forest tw-text-mist tw-shadow-lg tw-ring-1 tw-ring-mist/40 max-[700px]:tw-left-1/2 max-[700px]:tw-right-auto max-[700px]:-tw-translate-x-1/2" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="3000">
+  <div role="status" aria-live="polite" aria-atomic="true">
+  <div id="copy-toast" class="toast tw-fixed tw-bottom-5 tw-right-5 tw-z-[1100] tw-w-[min(350px,calc(100vw-40px))] tw-rounded-none tw-border-0 tw-bg-forest tw-text-mist tw-shadow-lg tw-ring-1 tw-ring-mist/40 max-[700px]:tw-left-1/2 max-[700px]:tw-right-auto max-[700px]:-tw-translate-x-1/2" data-bs-delay="3000">
     <div id="copy-toast-text" class="toast-body tw-p-4 tw-font-semibold"></div>
+  </div>
   </div>
   <div class="modal fade" id="modal-library" tabindex="-1" aria-labelledby="modal-library-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
         <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-yellow tw-p-6 tw-text-orange">
           <h2 id="modal-library-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Library Management System</h2>
-          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body tw-p-6 md:tw-p-8">
           <p class="tw-m-0 tw-mb-6">A small system for keeping track of which books are on the shelf and who has them out. It is a class project where I am learning how a web page talks to a database. It still has rough edges, and that is part of the fun.</p>
@@ -262,7 +265,7 @@
       <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
         <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-green tw-p-6 tw-text-forest">
           <h2 id="modal-grades-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Student Grade Tracker</h2>
-          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body tw-p-6 md:tw-p-8">
           <p class="tw-m-0 tw-mb-6">A console program that stores a student’s scores and works out the average. I built it to practice Java classes and loops. It is small, but it taught me how to break a problem into steps.</p>
@@ -284,7 +287,7 @@
       <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
         <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-pink tw-p-6 tw-text-blue">
           <h2 id="modal-network-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Network Setup Lab</h2>
-          <button type="button" class="btn-close tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body tw-p-6 md:tw-p-8">
           <p class="tw-m-0 tw-mb-6">A lab where I set up a small network of computers, a switch and a router in Cisco Packet Tracer. The goal was to get every device talking to the others. Most of the learning came from working out why a ping failed.</p>
@@ -306,7 +309,7 @@
       <div class="modal-content tw-rounded-none tw-border-0 tw-bg-paper tw-text-ink">
         <div class="modal-header tw-items-start tw-justify-between tw-gap-4 tw-rounded-none tw-border-0 tw-bg-blue tw-p-6 tw-text-green">
           <h2 id="modal-inventory-title" class="tw-m-0 tw-text-[length:clamp(1.6rem,4vw,2.6rem)] tw-font-bold tw-leading-[1.05] tw-tracking-[-.05em]">Inventory App</h2>
-          <button type="button" class="btn-close btn-close-white tw-m-0 tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white tw-shrink-0 tw-opacity-100" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body tw-p-6 md:tw-p-8">
           <p class="tw-m-0 tw-mb-6">A simple app for keeping track of items and how many are left. I used it to practice Python and saving data in a SQLite file. It only runs on my own computer for now.</p>

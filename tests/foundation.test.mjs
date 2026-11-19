@@ -63,3 +63,13 @@ test('no uncaught errors', async () => {
   assert.ok(site.pages.length > 0);
   for (const page of site.pages) assert.deepEqual(page.errors, []);
 });
+
+test('open phone menu panel has a visible bottom edge', async () => {
+  const page = await site.open({ width: 375, height: 812, mobile: true });
+  try {
+    assert.equal(await page.eval(`getComputedStyle(document.querySelector('#site-nav')).boxShadow`), 'none');
+    await page.eval(`document.querySelector('.navbar-toggler').click()`);
+    await page.waitFor(`document.querySelector('#nav-links').classList.contains('show')`);
+    assert.notEqual(await page.eval(`getComputedStyle(document.querySelector('#site-nav')).boxShadow`), 'none');
+  } finally { await page.close(); }
+});

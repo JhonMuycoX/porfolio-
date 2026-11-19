@@ -187,7 +187,13 @@ function initProgress() {
 }
 
 function initTooltips() {
-  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => new bootstrap.Tooltip(el));
+  if (typeof bootstrap === 'undefined') return;
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => bootstrap.Tooltip.getOrCreateInstance(el));
+  // WCAG 1.4.13: a shown tooltip can be dismissed with Escape.
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || typeof bootstrap === 'undefined') return;
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => bootstrap.Tooltip.getInstance(el)?.hide());
+  });
 }
 
 function initCopyEmail() {

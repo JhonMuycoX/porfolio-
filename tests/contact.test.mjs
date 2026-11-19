@@ -41,7 +41,7 @@ test('copy success shows toast and fills clipboard', async () => {
     await page.waitFor(`document.querySelector('#copy-toast').classList.contains('show')`);
     assert.equal(await toastText(page), 'Email copied!');
     assert.equal(await page.eval(`navigator.clipboard.readText()`), EMAIL);
-    const t = await page.eval(`(() => { const t = document.querySelector('#copy-toast'); const s = getComputedStyle(t); const r = t.getBoundingClientRect(); return { color: s.color, bg: s.backgroundColor, border: s.borderTopWidth, role: t.getAttribute('role'), live: t.getAttribute('aria-live'), right: innerWidth - r.right, bottom: innerHeight - r.bottom, pos: s.position }; })()`);
+    const t = await page.eval(`(() => { const t = document.querySelector('#copy-toast'); const s = getComputedStyle(t); const r = t.getBoundingClientRect(); return { color: s.color, bg: s.backgroundColor, border: s.borderTopWidth, role: t.parentElement.getAttribute('role'), live: t.parentElement.getAttribute('aria-live'), right: innerWidth - r.right, bottom: innerHeight - r.bottom, pos: s.position }; })()`);
     assert.equal(t.color, 'rgb(230, 236, 218)');
     assert.equal(t.bg, 'rgb(20, 43, 35)');
     assert.equal(t.border, '0px');
@@ -112,5 +112,29 @@ test('no horizontal scroll at 375px', async () => {
   const page = await site.open({ width: 375, height: 812, mobile: true });
   try {
     assert.equal(await page.eval(`document.documentElement.scrollWidth <= innerWidth`), true);
+  } finally { await page.close(); }
+});
+
+test('init survives a missing bootstrap global and copy still works', async () => {
+  const page = await site.open({ width: 1440, height: 900 });
+  try {
+    await site.browser.grantClipboard(new URL(site.url).origin);
+    const err = await page.eval(`(() => { delete window.bootstrap; try { initTooltips(); return null; } catch (e) { return e.message; } })()`);
+    assert.equal(err, null, 'initTooltips must be a no-op without bootstrap');
+    await toContact(page);
+    await page.eval(`document.querySelector('#copy-email').click()`);
+    await page.waitFor(`document.querySelector('#copy-toast-text').textContent.trim() === 'Email copied!'`);
+  } finally { await page.close(); }
+});
+
+test('toast sits inside an always-rendered polite live region', async () => {
+  const page = await site.open({ width: 1440, height: 900 });
+  try {
+    const r = await page.eval(`(() => {
+      const w = document.querySelector('#copy-toast').parentElement;
+      return { live: w.getAttribute('aria-live'), atomic: w.getAttribute('aria-atomic'), display: getComputedStyle(w).display,
+        toastLive: document.querySelector('#copy-toast').hasAttribute('aria-live') };
+    })()`);
+    assert.deepEqual(r, { live: 'polite', atomic: 'true', display: 'block', toastLive: false });
   } finally { await page.close(); }
 });
