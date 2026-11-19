@@ -29,3 +29,8 @@ test('every class token is tw- prefixed or an allowed Bootstrap class', () => {
 test('no dead links', () => assert.doesNotMatch(html, /href="#"/));
 
 test('old project names are gone', () => assert.doesNotMatch(html, /Dayoff|Forma|Common Ground/));
+
+test('page title and description', () => {
+  assert.match(html, /<title>Muyco \| BSIT student portfolio<\/title>/);
+  assert.ok(html.includes('<meta name="description" content="Muyco\'s portfolio. A first-year BSIT student building systems, apps, and websites.">'));
+});
